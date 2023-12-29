@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.olganehmad.com/posts/advent-of-c-and-c/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/cc/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/cyber/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/fluff/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/posts/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/</loc>
+    <lastmod>2023-12-27T20:15:26+02:00</lastmod>
+  </url><url>
     <loc>https://www.olganehmad.com/about/</loc>
     <lastmod>2023-09-23T22:26:21+03:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/posts/a-beginning/</loc>
-    <lastmod>2023-09-21T23:45:54+03:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/tags/fluff/</loc>
-    <lastmod>2023-09-21T23:45:54+03:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/</loc>
-    <lastmod>2023-09-21T23:45:54+03:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/posts/</loc>
-    <lastmod>2023-09-21T23:45:54+03:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/tags/</loc>
     <lastmod>2023-09-21T23:45:54+03:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/authors/</loc>

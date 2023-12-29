@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023</copyright>
-    <lastBuildDate>Thu, 21 Sep 2023 23:45:54 +0300</lastBuildDate><atom:link href="https://www.olganehmad.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Dec 2023 20:15:26 +0200</lastBuildDate><atom:link href="https://www.olganehmad.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of C and C</title>
+      <link>https://www.olganehmad.com/posts/advent-of-c-and-c/</link>
+      <pubDate>Wed, 27 Dec 2023 20:15:26 +0200</pubDate>
+      
+      <guid>https://www.olganehmad.com/posts/advent-of-c-and-c/</guid>
+      <description>What to do when life gives you too many lemons?</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>https://www.olganehmad.com/about/</link>

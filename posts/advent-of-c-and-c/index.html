@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>Advent of C and C | Olga&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="What to do when life gives you too many lemons?">
+  <meta name="generator" content="Hugo 0.118.2">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="stylesheet" href="/css/libraries.min.71ed9843bd9de5b970d18e88108ced41f778369861ec5e39a971f94435ada25f.css" crossorigin="anonymous" integrity="sha256-ce2YQ72d5blw0Y6IEIztQfd4Nphh7F45qXH5RDWtol8=">
+
+  
+<link rel="stylesheet" href="/scss/main.min.38d6f7fe2ed56e0405a0b97a3840a42bd24d463ddd52e1efb6021c6df42b146c.css" crossorigin="anonymous" integrity="sha256-ONb3/i7VbgQFoLl6OECkK9JNRj3dUuHvtgIcbfQrFGw=">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.olganehmad.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.olganehmad.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.olganehmad.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.olganehmad.com/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://www.olganehmad.com/favicon/safari-pinned-tab.svg" color="#00aba9">
+  <link rel="shortcut icon" href="https://www.olganehmad.com/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="https://www.olganehmad.com/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#00aba9"><meta name="keywords" content="cyber, fluff, C&C">
+  <meta name="og:title" content="Advent of C and C">
+  <meta name="og:description" content="What to do when life gives you too many lemons?">
+  <meta name="og:type" content="article">
+  <meta name="og:site_name" content="Olga&#39;s Blog">
+  <meta name="og:url" content="https://www.olganehmad.com/posts/advent-of-c-and-c/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="og:image" content="https://www.olganehmad.com/posts/advent-of-c-and-c/lemonade_hu3d03a01dcc18bc5be0e67db3d8d209a6_2558398_1200x630_fit_q75_box.jpg">
+  <meta name="twitter:image" content="https://www.olganehmad.com/posts/advent-of-c-and-c/lemonade_hu3d03a01dcc18bc5be0e67db3d8d209a6_2558398_be3d693aba0708ffa35a1f272adb3c07.jpg">
+  
+	
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    
+    function detectTheme() {
+      var theme = "light";
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        var theme = "dark";
+      }
+
+      if (localStorage.getItem("theme")) {
+        var theme = localStorage.getItem("theme");
+      }
+
+      if (theme == "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+
+    detectTheme();
+  </script>
+
+  
+    <header id="site-header" class="l-compact">
+  <nav class="l-container_site">
+    <div class="branding">
+        <h1 class="branding-title">
+          <a href="/" accesskey="h" title="Home (Alt + H)">Olga&#39;s Blog</a>
+        </h1>
+      <p class="branding-tagline">Forays into reversing</p>
+    </div>
+    <label class="toggle" accesskey="t" title="Change Theme (Alt + T)">
+      <input id="theme-toggle" type="checkbox"></input>
+      <span class="theme-button"></span>
+    </label>
+    <div id="site-nav">
+      <label class="toggle" accesskey="n" title="Open Site Navigation (Alt + N)">
+        <input id="nav-toggle" type="checkbox"></input>
+        <span class="nav-button"></span>
+      </label>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/about/">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="/tags/">Tags</a>
+        </li>
+        <li class="menu-item">
+          <a href="/contact/">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <progress id="reading-progress" max="100" value="0" ></progress>
+</header>
+
+  
+
+  <main id="site-main" role="main">
+
+    
+<article class="l-container_content card">
+  <header class="card-header">
+  
+  <div class="card-meta">
+    <span><time datetime="2023-12-27 20:15:26 &#43;0200 IST">Dec 27</time> · 6 min read</span>
+  </div>
+  <h1 class="card-title"><a href="/posts/advent-of-c-and-c/">Advent of C and C</a></h1>
+  
+
+  
+  <figure>
+    <a href="/posts/advent-of-c-and-c/"><img src="/posts/advent-of-c-and-c/lemonade_hu3d03a01dcc18bc5be0e67db3d8d209a6_2558398_1280x400_fill_q75_box_smart1.jpg" alt="A Decorative Image" width="640px" height="200px"></a>
+    <figcaption></figcaption>
+  </figure>
+
+</header>
+
+  <section class="card-content">
+    <blockquote>
+<p><em>And then, the funniest thing happened&hellip;</em></p>
+<p><cite>Bo Burnham, All Eyes On Me</cite></p>
+</blockquote>
+<h3 id="preamble">Preamble</h3>
+<p>2023 is a gift that keeps on giving. Forget whatever difficulties I&rsquo;ve had at my (prior) job and the slight embarrasment of being laid off - I&rsquo;ve made as much lemonade as I could with them lemons. No, this yeah has had a couple of parting gifts, to make sure I&rsquo;m not too complacent. A &ldquo;this isn&rsquo;t even my final form!&rdquo; boss fight, if you will.</p>
+<p>
+
+<figure>
+    <a href="final-form.jpeg" target="calligraphy-image">
+      <img loading="lazy" src="final-form.jpeg" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>October 7th, The Black Shabbat, needs no elaboration. I never thought I&rsquo;d have to teach my toddler what to do in case of an air raid siren, and we didn&rsquo;t even bother explaining that the reason we now have friends in a nearby kibbutz is that they have lost everything and had to evacuate.</p>
+<p>With all that going on, it wasn&rsquo;t until December that I found the time and the motivation to boot my mac (and my brain), just in time for the <a href="https://tryhackme.com/">TryHackMe</a> <a href="https://tryhackme.com/room/adventofcyber2023">Advent of Cyber 2023</a> challenge.</p>
+<p>In a nutshell, this is a beginner-friendly CTF-like advent calendar, meant to introduce various subjects, techniques and tools relevant to the broad field of cyber security. Each task comes with a step-by-step guide, as well as a handy virtual environment, saving you hours of setups and installations. I didn&rsquo;t see a point in making a traditional writeup, seeing as the step-by-step guides were very good. Instead, I thought I&rsquo;d extract all the terminology, tools and #TILs from the various challenges into a lexically ordered list, and hopefully someone will find it useful (I know I will).</p>
+<p><em>Unfortunately, I only made it to day 8 of the advent calendar, thanks to that pesky second C, the second form of that boss fight. But more on that later.</em></p>
+<h3 id="terms-tools-and-tils">Terms, Tools and TILs</h3>
+<p>
+
+<figure>
+    <a href="leatherman.gif" target="calligraphy-image">
+      <img loading="lazy" src="leatherman.gif" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<h5 id="prompt-injection">Prompt Injection</h5>
+<p>Language models are trained on data, which basically means they detect patterns of which words tend to follow which words in the data, and then use these patterns to complete sentences and parse questions. Any sensitive data in the training set is a part of the possible patterns, and can be yielded by using the right prompt. For instance, if a model was trained on internal code, it might contain credentials or API keys; a model trained on logs can learn IPs, domains and various PIIs. Presenting the language model with the right question can fetch the sensitive data, as well as circumvent various methods to defend that data.</p>
+<p>As a developer, this mostly tells me to keep my code sanitized even if it isn&rsquo;t public, and especially if it is. The emergence of various copilots in public source control repositories means anything you commit &amp; push can end up in a dataset. And remember, even if you&rsquo;ve removed data from the code, GIT has a long memory.</p>
+<h5 id="siem">SIEM</h5>
+<p>Security Information and Event Management, a tool that aggregates logs, alerts and events into one real-time system.</p>
+<p>When dealing with large enterprise environments, the amount of noise generated by monitoring systems can be staggering. In my days as a QA, I often spend hours trying to correlate events from like 6 different logging systems and event monitors to pinpoint the exact cause of some obscure bug. Having one centralized system, and knowing how to query its contents to highlight suspicious or malicious behavior, is invaluable.</p>
+<h5 id="brute-forcing">Brute-Forcing</h5>
+<p>In the context of the challenge - trying to figure out sensitive data (i.e. a password) by trying all possible combinations. Some tools used for brute-forcing:</p>
+<ul>
+<li>
+<p><strong>Crunch:</strong> A command-line tool that generates a list of all possible combinations based on a set of characters and min/max length limits. The list can then be fed into a brute-forcing tool when attempting to crack a password.</p>
+<p>Combinatorics plays an important role in determining password complexity (in addition to it being one of my favorite branches of discrete maths). Essentially, the larger the charset and longer the password, the more combinations there are for the brute-force to try.</p>
+<p>You can calculate the average time to crack a password by dividing the total number of combinations by the number of guesses per second your tool can make.</p>
+</li>
+<li>
+<p><strong>CeWL:</strong> A web crawler that generates a wordlist for a site. Since the time it takes to brute-force credentials is dependent on the total amount of passwords, shortening that amount can save time.</p>
+<p>For instance, if you&rsquo;re trying to find a username to log into some company&rsquo;s system, and that company has a &ldquo;Meet our Team!&rdquo; page on their site, you can use that to generate a list of potential usernames.</p>
+</li>
+<li>
+<p><strong>Hydra:</strong> A command-line tool for brute-forcing passwords over HTTP, using a pre-generated list of possible passwords.</p>
+</li>
+<li>
+<p><strong>Wfuzz:</strong> A command-line tool for brute-forcing web apps.</p>
+</li>
+</ul>
+<h5 id="magic-bytesfile-signature">Magic Bytes/File Signature</h5>
+<p>The first bytes of a binary file are indicators of the type of that file. They are used, for instance, when a computer decides which app to use to open a particular file. A file signature can be faked to make a file seem like something else, for instance, make an executable look like a picture.</p>
+<h5 id="log-analysis">Log Analysis</h5>
+<p>When you need to crunch some data but you have no cool SIEM system, not even a BI tool with a proprietary querying language, what do you do? Who do you call? Well, it so happens Linux has you sorted with a bunch of command-line tools that honestly work amazingly well, enough to stop me from reaching for my old faithful spreadsheet. Pipe these commands into one another for best results!</p>
+<ul>
+<li><code>grep</code> search for a term (or a regex) in a file\folder. Comes with a truckload of <a href="https://www.gnu.org/software/grep/manual/grep.html">useful flags</a>.</li>
+<li><code>cut</code> slice a file into columns by a given delimeter, and show the desired columns.</li>
+<li><code>sort</code> sort the results of a list of strings.</li>
+<li><code>uniq</code> remove duplicates from a given list of strings (works best if the list came pre-sorted).</li>
+</ul>
+<h5 id="ftk-imager">FTK Imager</h5>
+<p>A forensics tool that allows forensic specialists to acquire computer data and perform analysis without affecting the original evidence, preserving its authenticity, integrity, and validity for presentation during a trial in a court of law.</p>
+<p>The tool also allows to analyze hardware contents in a safe environment, for instance, if you want to look at the contents of a USB you found on the floor.</p>
+<h3 id="the-second-c">The Second C</h3>
+<p>In the backround, between adventing, parenting and monitoring the hostage situation, I was also casually checking a suspicious lump I&rsquo;ve encountered during a routine mammary gland inspection. One lab led to another, and before long we&rsquo;ve realized this is not a drill, I repeat, THIS IS NOT A DRILL. The boss made his final transformation. The big C has arrived.</p>
+<p>So what happens next?</p>
+<p>
+
+<figure>
+    <a href="cave-johnson-lemons.jpeg" target="calligraphy-image">
+      <img loading="lazy" src="/posts/advent-of-c-and-c/cave-johnson-lemons_hu85686dba656b3df3d260be94547aa245_449458_700x0_resize_q75_box.jpeg" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Honestly, by this point I&rsquo;m not sure making plans is even worth it. On the other hand, I am facing prolonged combat, months of unemployment, hours in an armchair strapped to an IV; I might as well do something productive with that time. Find things I can gain, to balance out everything I&rsquo;m about to lose (some hair, some soft tissue, possibly several meals). Let 2024 be the year of C&amp;C, Cyber and Cancer, and may the former grow as the latter shrinks.</p>
+<p>Squeeze your titties, friends, and may none of you join the C&amp;C club this year!</p>
+
+  </section>
+  	
+  	
+  	
+<footer class="card-footer">
+  <ul class="taxonomy-list_tags">
+    <li><a href="https://www.olganehmad.com/tags/cyber/" class="taxonomy-item">cyber</a></li>
+    <li><a href="https://www.olganehmad.com/tags/fluff/" class="taxonomy-item">fluff</a></li>
+    <li><a href="https://www.olganehmad.com/tags/cc/" class="taxonomy-item">C&amp;C</a></li>
+  </ul>
+</footer>
+
+</article>
+    
+    
+  
+<aside class="l-container_right aside card toc">
+    <script type="text/javascript" src="/js/tocbot.min.js"></script>
+  <script>
+    tocbot.init({
+      tocSelector: '.l-container_right',
+      contentSelector: '.card-content',
+      headingSelector: 'h2, h3',
+      hasInnerContainers: true,
+      collapseDepth: 0,
+      headingsOffset: 80,
+      scrollSmoothOffset: -80
+    });
+  </script>
+</aside>
+
+    
+  
+<footer class="l-container_footer">
+  <nav class="pagination">
+    
+    <a href="https://www.olganehmad.com/posts/a-beginning/" class="pagination-old" role="button"><span class="pagination-title">Previous Post</span><br><span>A Beginning</span></a>
+  </nav>
+</footer>
+
+  </main>
+
+  <footer id="site-footer">
+  <p>Copyright © 2023 | Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/pacollins/calligraphy">Calligraphy</a></p>
+</footer>
+<script type="text/javascript" src="/js/bundle.min.99003690d76075787872f8695ad01f426a217f22e23586c59ce08cb4ddfc43d3.js" crossorigin="anonymous" integrity="sha256-mQA2kNdgdXh4cvhpWtAfQmohfyLiNYbFnOCMtN38Q9M="></script>
+
+
+</body>
+
+</html>
