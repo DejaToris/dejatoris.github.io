@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>Kotlin Koans for Perplexed Pythonistas | Olga&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Much ado about Nothing">
+  <meta name="generator" content="Hugo 0.118.2">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="stylesheet" href="/css/libraries.min.71ed9843bd9de5b970d18e88108ced41f778369861ec5e39a971f94435ada25f.css" crossorigin="anonymous" integrity="sha256-ce2YQ72d5blw0Y6IEIztQfd4Nphh7F45qXH5RDWtol8=">
+
+  
+<link rel="stylesheet" href="/scss/main.min.7a5a6c86dd8afb68da23b8bcf40e860d8479bf9f96c1d615ae97542d256049ba.css" crossorigin="anonymous" integrity="sha256-elpsht2K&#43;2jaI7i89A6GDYR5v5&#43;WwdYVrpdULSVgSbo=">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.olganehmad.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.olganehmad.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.olganehmad.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.olganehmad.com/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://www.olganehmad.com/favicon/safari-pinned-tab.svg" color="#00aba9">
+  <link rel="shortcut icon" href="https://www.olganehmad.com/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="https://www.olganehmad.com/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#00aba9"><meta name="keywords" content="kotlin, C&C">
+  <meta name="og:title" content="Kotlin Koans for Perplexed Pythonistas">
+  <meta name="og:description" content="Much ado about Nothing">
+  <meta name="og:type" content="article">
+  <meta name="og:site_name" content="Olga&#39;s Blog">
+  <meta name="og:url" content="https://www.olganehmad.com/posts/kotlin-koans-for-perplexed-pythonistas/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="og:image" content="https://www.olganehmad.com/posts/kotlin-koans-for-perplexed-pythonistas/snake-543243_1280_hu9d27177756fa2dc6a183729c3a5ae2e6_223116_1200x630_fit_q75_box.jpg">
+  <meta name="twitter:image" content="https://www.olganehmad.com/posts/kotlin-koans-for-perplexed-pythonistas/snake-543243_1280_hu9d27177756fa2dc6a183729c3a5ae2e6_223116_2f1372543a04013a85ac7e00558ceee7.jpg">
+  
+	
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    
+    function detectTheme() {
+      var theme = "light";
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        var theme = "dark";
+      }
+
+      if (localStorage.getItem("theme")) {
+        var theme = localStorage.getItem("theme");
+      }
+
+      if (theme == "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+
+    detectTheme();
+  </script>
+
+  
+    <header id="site-header" class="l-compact">
+  <nav class="l-container_site">
+    <div class="branding">
+        <h1 class="branding-title">
+          <a href="/" accesskey="h" title="Home (Alt + H)">Olga&#39;s Blog</a>
+        </h1>
+      <p class="branding-tagline">Forays into reversing</p>
+    </div>
+    <label class="toggle" accesskey="t" title="Change Theme (Alt + T)">
+      <input id="theme-toggle" type="checkbox"></input>
+      <span class="theme-button"></span>
+    </label>
+    <div id="site-nav">
+      <label class="toggle" accesskey="n" title="Open Site Navigation (Alt + N)">
+        <input id="nav-toggle" type="checkbox"></input>
+        <span class="nav-button"></span>
+      </label>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/about/">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="/tags/">Tags</a>
+        </li>
+        <li class="menu-item">
+          <a href="/contact/">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <progress id="reading-progress" max="100" value="0" ></progress>
+</header>
+
+  
+
+  <main id="site-main" role="main">
+
+    
+<article class="l-container_content card">
+  <header class="card-header">
+  
+  <div class="card-meta">
+    <span><time datetime="2024-01-18 13:44:12 &#43;0200 IST">Jan 18</time> · 8 min read</span>
+  </div>
+  <h1 class="card-title"><a href="/posts/kotlin-koans-for-perplexed-pythonistas/">Kotlin Koans for Perplexed Pythonistas</a></h1>
+  
+
+  
+  <figure>
+    <a href="/posts/kotlin-koans-for-perplexed-pythonistas/"><img src="/posts/kotlin-koans-for-perplexed-pythonistas/snake-543243_1280_hu9d27177756fa2dc6a183729c3a5ae2e6_223116_1280x400_fill_q75_box_smart1.jpg" alt="A Decorative Image" width="640px" height="200px"></a>
+    <figcaption></figcaption>
+  </figure>
+
+</header>
+
+  <section class="card-content">
+    <blockquote>
+<p><em>A lesser light asks Ummon, What are the activites of a sramana? Ummon answers, I have not the slightest idea. The dim light then says, Why haven&rsquo;t you any idea? Ummon replies, I just want to keep my no-idea.</em></p>
+<p><cite>Dan Simmons, the Fall of Hyperion</cite></p>
+</blockquote>
+<h2 id="confessions-of-a-python-girlie">Confessions of a Python Girlie</h2>
+<p>It&rsquo;s time to put it out there. I am not a software developer. I can&rsquo;t even confidently say I&rsquo;ve ever developed actual software, as in a standalone program or app that can be installed and used outside of an IDE runtime environment. I wrote many a python script, sometimes with objects and classes and even a <code>__main__</code>; I wrote unit tests and testing frameworks and scripts for packaging and deployment and CI/CD; I maintained and debugged and eventually extended production code for research tooling that was written by much more experienced people than myself. I&rsquo;m a bit like a second language learner: I understand a lot, enough to read and hold my own in conversations and even provide criticism (my CRs used to put fear into my coworkers!), but not enough to, say, write a poem.</p>
+<p>All of this is to say, there are many things about programming I only know about from hearsay, from glimpsing fancy decorators in code written by my elders and other kinds of arcane lore. Kotlin is the first language I&rsquo;m venturing to learn in a long while (not counting the extremely superficial acquaintance I made with JavaScript last year), and I intend to use it for Actual Software Development. I am taking it rather seriously - doing the full Android Developer bootcamp, not skipping any subjects etc. On the other hand, I can&rsquo;t really ignore the fact that I&rsquo;ve been writing piles of Python code over the past year. I have some assumptions, some habits and automatic approaches to tasks, and approximate understanding of core concepts that will need to be challenged.</p>
+<h2 id="kotlin-koans-introduction">Kotlin Koans: introduction</h2>
+<p>After completing the first section of the Kotlin bootcamp, I wanted to play around with the basics a bit more, just to make sure I really get it. Lo and behold, the &ldquo;Learn more&rdquo; page of the bootcamp suggested <a href="https://play.kotlinlang.org/">Kotlin Koans</a> as a good hands-on tutorial. I was familiar with the concept of a koan since <a href="https://www.mrnice.dev/posts/first-foray-into-clojure-part-1/">Mr. Nice&rsquo;s foray into Clojure</a>, and of course I wanted my own version of that juicy content.</p>
+<p>The thing that I noticed the most when doing the koans was where exactly I got stuck - it was the smallest things. I was confused by most one-liners, while other tasks really felt like stating the obvious. I suppose it all depends on where you&rsquo;re coming from, after all, the &ldquo;Welcome&rdquo; page of the Kotlin bootcamp did mention Java and C# as prerequisites. Let me share some of my confusion with you.</p>
+<h3 id="hello-world">Hello World</h3>
+<p>The task at hand was very simple:</p>
+<blockquote>
+<p>Replace TODO with a function that returns &ldquo;OK&rdquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">start</span>(): String = TODO()
+</span></span></code></pre></div><p>&ldquo;a function&rdquo;, they said. &ldquo;return&rdquo;, they said. Naturally, I followed the instructions, added a scope and a return value.</p>
+<p>
+
+<figure>
+    <a href="image.png" target="calligraphy-image">
+      <img loading="lazy" src="image.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Oy vey.</p>
+<p>
+
+<figure>
+    <a href="image-3.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/kotlin-koans-for-perplexed-pythonistas/image-3_hub5031a90bfd1d39144f1ddb7d9fce504_550687_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Let&rsquo;s see what compiler has to say.</p>
+<p>
+
+<figure>
+    <a href="image-1.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/kotlin-koans-for-perplexed-pythonistas/image-1_hu57729cafdd52127f0ce6ceb4328da5ff_9299_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>
+
+<figure>
+    <a href="image-2.png" target="calligraphy-image">
+      <img loading="lazy" src="image-2.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>But.. but.. you said function should RETURN &ldquo;OK&rdquo;!</p>
+<p>I took the Michaelangelo route and started removing everything unnecessary, ending up with the solution:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">start</span>(): String = <span style="color:#e6db74">&#34;OK&#34;</span>
+</span></span></code></pre></div><p>Note to self - a function that returns a string can just be a literal string.</p>
+<h3 id="named-arguments">Named Arguments</h3>
+<blockquote>
+<p>Make the function <code>joinOptions()</code> return the list in a JSON format (for example, <code>[a, b, c]</code>) by specifying only two arguments.</p>
+</blockquote>
+<p>I know some of those words!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">joinOptions</span>(options: Collection&lt;String&gt;) =
+</span></span><span style="display:flex;"><span>    options.joinToString(TODO())
+</span></span></code></pre></div><p>The gist is that the library function <code>joinToString</code> has named arguments for formatting options. The task specified a prefix <code>[</code>, a separator <code>, </code> and a suffix <code>]</code>, BUT the function also specifies default values for the arguments if no override is provided. The default value for the separator is indeed <code>, </code> so no need to specify that, leaving only 2 arguments, as required.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">joinOptions</span>(options: Collection&lt;String&gt;) =
+</span></span><span style="display:flex;"><span>    options.joinToString(prefix = <span style="color:#e6db74">&#34;[&#34;</span>, postfix = <span style="color:#e6db74">&#34;]&#34;</span>)
+</span></span></code></pre></div><h3 id="default-arguments">Default Arguments</h3>
+<blockquote>
+<p>Change the declaration of the <code>foo</code> function in a way that makes the code using <code>foo</code> compile.</p>
+</blockquote>
+<p>
+
+<figure>
+    <a href="image-5.png" target="calligraphy-image">
+      <img loading="lazy" src="image-5.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>The calls to <code>foo</code> function don&rsquo;t pass some of the arguments specified in the function, so I suppose I should add some default values&hellip;?</p>
+<p>
+
+<figure>
+    <a href="legally-blonde-hard.gif" target="calligraphy-image">
+      <img loading="lazy" src="legally-blonde-hard.gif" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>This is ubiquitous in Python, but maybe not in other languages?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">foo</span>(name: String = <span style="color:#e6db74">&#34;&#34;</span>, number: Int = <span style="color:#ae81ff">42</span>, toUpperCase: Boolean = <span style="color:#66d9ef">false</span>) =
+</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">if</span> (toUpperCase) name.uppercase() <span style="color:#66d9ef">else</span> name) + number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">useFoo</span>() = listOf(
+</span></span><span style="display:flex;"><span>        foo(<span style="color:#e6db74">&#34;a&#34;</span>),
+</span></span><span style="display:flex;"><span>        foo(<span style="color:#e6db74">&#34;b&#34;</span>, number = <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>        foo(<span style="color:#e6db74">&#34;c&#34;</span>, toUpperCase = <span style="color:#66d9ef">true</span>),
+</span></span><span style="display:flex;"><span>        foo(name = <span style="color:#e6db74">&#34;d&#34;</span>, number = <span style="color:#ae81ff">2</span>, toUpperCase = <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="triple-quoted-strings">Triple Quoted Strings</h3>
+<blockquote>
+<p>Replace the trimIndent call with the trimMargin call taking # as the prefix value so that the resulting string doesn&rsquo;t contain the prefix character.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">val</span> question = <span style="color:#e6db74">&#34;life, the universe, and everything&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">val</span> answer = <span style="color:#ae81ff">42</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> tripleQuotedString = <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    #question = &#34;$question&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    #answer = </span><span style="color:#e6db74">$answer</span><span style="color:#e6db74">&#34;&#34;&#34;</span>.trimIndent()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    println(tripleQuotedString)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Triple-quoted strings == multiline strings.
+Calling <code>trimIndent()</code> on a string removes indentations in the multilined string. Calling <code>trimMargin()</code> does the same but you can also pass a parameter to specify a margin character (<code>|</code> by default, but could be anything). In this case, replacing the call to <code>trimIndent()</code> with <code>trimMargin(&quot;#&quot;)</code> produces the desired formatting. I found string formatting to be a very useful tool in Python, so it&rsquo;s good to know Kotlin has some built-ins for that.</p>
+<h3 id="string-templates">String Templates</h3>
+<blockquote>
+<p>Triple-quoted strings are not only useful for multiline strings but also for creating regex patterns as you don&rsquo;t need to escape a backslash with a backslash. Using the month variable, rewrite the following pattern in such a way that it matches the date in the format 13 JUN 1992 (two digits, one whitespace, a month abbreviation, one whitespace, four digits).</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> month = <span style="color:#e6db74">&#34;(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getPattern</span>(): String = TODO()
+</span></span></code></pre></div><p>The digits and the whitespaces are straightforward - <code>&quot;&quot;&quot;\d{2} (TODO) \d{4}&quot;&quot;&quot;</code>. Next, since the <code>month</code> variable is already formatted as a regex for one of the month names, we can plop it as is in the middle of the string - <code>&quot;&quot;&quot;\d{2} $month \d{4}&quot;&quot;&quot;</code>.</p>
+<p>
+
+<figure>
+    <a href="jam-bo.gif" target="calligraphy-image">
+      <img loading="lazy" src="jam-bo.gif" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>On a more personal note, regexes were in the intersection of my Linguistics major and CompSci minor in Uni, so there&rsquo;s always a warm place in my heart for them.</p>
+<h3 id="nullable-types">Nullable Types</h3>
+<blockquote>
+<p>Learn about <a href="https://kotlinlang.org/docs/null-safety.html">null safety and safe calls</a> in Kotlin and rewrite some given Java code so that it only has one <code>if</code> expression.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendMessageToClient</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Nullable</span> Client client<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Nullable</span> String message<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@NotNull</span> Mailer mailer
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>client <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> message <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PersonalInfo personalInfo <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getPersonalInfo</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>personalInfo <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String email <span style="color:#f92672">=</span> personalInfo<span style="color:#f92672">.</span><span style="color:#a6e22e">getEmail</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>email <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    mailer<span style="color:#f92672">.</span><span style="color:#a6e22e">sendMessage</span><span style="color:#f92672">(</span>email<span style="color:#f92672">,</span> message<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In Java, calling <code>client.getPersonalInfo()</code> on a null <code>client</code> will result in a runtime error, and so we need to ensure the variable is not null before we try to call its internal field or method. Kotlin enables us to call a variable&rsquo;s field in a safe way, first checking whether the variable itself is null (and returning <code>null</code> if it is), and only then accessing the field itself. This saves us some lines of code, which is always a good thing!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">sendMessageToClient</span>(
+</span></span><span style="display:flex;"><span>        client: Client?, message: String?, mailer: Mailer
+</span></span><span style="display:flex;"><span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> email = client<span style="color:#f92672">?.</span>personalInfo<span style="color:#f92672">?.</span>email
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (email <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> message <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        mailer.sendMessage(email, message)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="nothing-type">Nothing Type</h3>
+<blockquote>
+<p>Specify Nothing return type for the failWithWrongAge function. Note that without the Nothing type, the checkAge function doesn&rsquo;t compile because the compiler assumes the age can be null.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> java.lang.IllegalArgumentException
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">failWithWrongAge</span>(age: Int?)    {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> IllegalArgumentException(<span style="color:#e6db74">&#34;Wrong age: </span><span style="color:#e6db74">$age</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">checkAge</span>(age: Int?) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (age <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> age <span style="color:#f92672">!in</span> <span style="color:#ae81ff">0.</span>.<span style="color:#ae81ff">150</span>) failWithWrongAge(age)
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;Congrats! Next year you&#39;ll be </span><span style="color:#e6db74">${age + 1}</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    checkAge(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
+
+<figure>
+    <a href="nothing.gif" target="calligraphy-image">
+      <img loading="lazy" src="nothing.gif" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>The solution is literally spelled out in the task - just add <code>: Nothing</code> to the function declaration. However, I was thrown off by this way more than I should have. Most of the Python I dealt with wasn&rsquo;t typed or was weakly typed, so I haven&rsquo;t seen many examples where tight control over return types, especially nulls and nothings, would be significant. I&rsquo;m sure it will come useful at some point in the future, in which case you can expect a throwback!</p>
+<h3 id="lambdas">Lambdas</h3>
+<blockquote>
+<p>Pass a lambda to the any function to check if the collection contains an even number. The any function gets a predicate as an argument and returns true if at least one element satisfies the predicate.</p>
+</blockquote>
+<p>Ah, lambdas, another warm and fuzzy memory from Semantics A (or is it a cold and prickly memory? Semantics A was a long time ago).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">containsEven</span>(collection: Collection&lt;Int&gt;): Boolean =
+</span></span><span style="display:flex;"><span>        collection.any {TODO}
+</span></span></code></pre></div><p>A lambda expression is like a short-hand way to create a function. I could do a loop iterating over all members of the collection within the scope of the original <code>containsEven</code> function, or I could utilize <code>collection.any</code> but still pass it a fully-fledged function. Instead I can take just the actually functional bit of computation I need to do (e.g. modulo 2), and shove it into curly brackets, and badabing badaboom we&rsquo;ve got ourselves a function!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">containsEven</span>(collection: Collection&lt;Int&gt;): Boolean =
+</span></span><span style="display:flex;"><span>        collection.any { x: Int <span style="color:#f92672">-&gt;</span> x % <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> }
+</span></span></code></pre></div><p>Looking at the suggested solution though, it&rsquo;s even shorter than what I came up with - <code>{it % 2 == 0}</code>. I assume <code>it</code> is interpreted as whichever member the <code>collection.any</code> passes to the lambda. Nifty!</p>
+<h2 id="onwards-and-upwards">Onwards and Upwards</h2>
+<p>This Pythonista is a little less confused! Still, this is very much a beginner-level stage I&rsquo;m at. I&rsquo;m sure there will be more confusion as I venture deeper into Kotlin development, and I plan on sharing all of that confusion with y&rsquo;all.</p>
+<p>In other news, chemo is tough. I am grateful for my amazing family and my lovely friends, who&rsquo;ve all banded up together to keep me well taken care of. That, and a gynormous pot of chicken soup courtesy of my mom, is what keeps me going in these rainy days. Also, respect to all bald people - how on earth do you not freeze every single moment of your life??</p>
+<p>Peace and love.</p>
+
+  </section>
+  	
+  	
+  	
+<footer class="card-footer">
+  <ul class="taxonomy-list_tags">
+    <li><a href="https://www.olganehmad.com/tags/kotlin/" class="taxonomy-item">kotlin</a></li>
+    <li><a href="https://www.olganehmad.com/tags/cc/" class="taxonomy-item">C&amp;C</a></li>
+  </ul>
+</footer>
+
+</article>
+    
+    
+  
+<aside class="l-container_right aside card toc">
+    <script type="text/javascript" src="/js/tocbot.min.js"></script>
+  <script>
+    tocbot.init({
+      tocSelector: '.l-container_right',
+      contentSelector: '.card-content',
+      headingSelector: 'h2, h3',
+      hasInnerContainers: true,
+      collapseDepth: 0,
+      headingsOffset: 80,
+      scrollSmoothOffset: -80
+    });
+  </script>
+</aside>
+
+    
+  
+<footer class="l-container_footer">
+  <nav class="pagination">
+    
+    <a href="https://www.olganehmad.com/posts/advent-of-c-and-c/" class="pagination-old" role="button"><span class="pagination-title">Previous Post</span><br><span>Advent of C and C</span></a>
+  </nav>
+</footer>
+
+  </main>
+
+  <footer id="site-footer">
+  <p>Copyright © 2023 | Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/pacollins/calligraphy">Calligraphy</a></p>
+</footer>
+<script type="text/javascript" src="/js/bundle.min.99003690d76075787872f8695ad01f426a217f22e23586c59ce08cb4ddfc43d3.js" crossorigin="anonymous" integrity="sha256-mQA2kNdgdXh4cvhpWtAfQmohfyLiNYbFnOCMtN38Q9M="></script>
+
+
+</body>
+
+</html>
