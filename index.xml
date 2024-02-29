@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023</copyright>
-    <lastBuildDate>Thu, 18 Jan 2024 13:44:12 +0200</lastBuildDate><atom:link href="https://www.olganehmad.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Feb 2024 11:44:48 +0200</lastBuildDate><atom:link href="https://www.olganehmad.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootcamp Blues</title>
+      <link>https://www.olganehmad.com/posts/bootcamp-blues/</link>
+      <pubDate>Mon, 19 Feb 2024 11:44:48 +0200</pubDate>
+      
+      <guid>https://www.olganehmad.com/posts/bootcamp-blues/</guid>
+      <description>A tutorial screenshot does not match reality, confusion ensues</description>
+    </item>
+    
     <item>
       <title>Kotlin Koans for Perplexed Pythonistas</title>
       <link>https://www.olganehmad.com/posts/kotlin-koans-for-perplexed-pythonistas/</link>
