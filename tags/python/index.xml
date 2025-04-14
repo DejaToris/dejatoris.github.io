@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Olga&#39;s Blog</title>
+    <link>https://www.olganehmad.com/tags/python/</link>
+    <description>Recent content in python on Olga&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023</copyright>
+    <lastBuildDate>Wed, 09 Apr 2025 14:00:04 -0700</lastBuildDate><atom:link href="https://www.olganehmad.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Not Another NATAS Writeup Part 1</title>
+      <link>https://www.olganehmad.com/posts/not-another-natas-writeup-part-1/</link>
+      <pubDate>Wed, 09 Apr 2025 14:00:04 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/posts/not-another-natas-writeup-part-1/</guid>
+      <description>NATAS, ffuf and the beginnings of a toolkit</description>
+    </item>
+    
+  </channel>
+</rss>
