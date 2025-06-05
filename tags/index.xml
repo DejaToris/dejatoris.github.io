@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023</copyright>
-    <lastBuildDate>Wed, 09 Apr 2025 14:00:04 -0700</lastBuildDate><atom:link href="https://www.olganehmad.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jun 2025 09:21:50 -0700</lastBuildDate><atom:link href="https://www.olganehmad.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CTF</title>
+      <title>ctf</title>
       <link>https://www.olganehmad.com/tags/ctf/</link>
-      <pubDate>Wed, 09 Apr 2025 14:00:04 -0700</pubDate>
+      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/ctf/</guid>
       <description></description>
@@ -20,9 +20,27 @@
     <item>
       <title>cyber</title>
       <link>https://www.olganehmad.com/tags/cyber/</link>
-      <pubDate>Wed, 09 Apr 2025 14:00:04 -0700</pubDate>
+      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/cyber/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hacking</title>
+      <link>https://www.olganehmad.com/tags/hacking/</link>
+      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phack</title>
+      <link>https://www.olganehmad.com/tags/phack/</link>
+      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/phack/</guid>
       <description></description>
     </item>
     
