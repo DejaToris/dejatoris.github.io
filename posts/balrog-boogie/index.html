@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>Balrog Boogie (Gandalf CTF Writeup) | Olga&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Gandalf AI told us we shall not pass. We did anyway.">
+  <meta name="generator" content="Hugo 0.118.2">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="stylesheet" href="/css/libraries.min.71ed9843bd9de5b970d18e88108ced41f778369861ec5e39a971f94435ada25f.css" crossorigin="anonymous" integrity="sha256-ce2YQ72d5blw0Y6IEIztQfd4Nphh7F45qXH5RDWtol8=">
+
+  
+<link rel="stylesheet" href="/scss/main.min.7a5a6c86dd8afb68da23b8bcf40e860d8479bf9f96c1d615ae97542d256049ba.css" crossorigin="anonymous" integrity="sha256-elpsht2K&#43;2jaI7i89A6GDYR5v5&#43;WwdYVrpdULSVgSbo=">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.olganehmad.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.olganehmad.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.olganehmad.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.olganehmad.com/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://www.olganehmad.com/favicon/safari-pinned-tab.svg" color="#00aba9">
+  <link rel="shortcut icon" href="https://www.olganehmad.com/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="https://www.olganehmad.com/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#00aba9"><meta name="keywords" content="cyber, hacking, gandalf, writeup, ctf, llm, genai">
+  <meta name="og:title" content="Balrog Boogie (Gandalf CTF Writeup)">
+  <meta name="og:description" content="Gandalf AI told us we shall not pass. We did anyway.">
+  <meta name="og:type" content="article">
+  <meta name="og:site_name" content="Olga&#39;s Blog">
+  <meta name="og:url" content="https://www.olganehmad.com/posts/balrog-boogie/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="og:image" content="https://www.olganehmad.com/posts/balrog-boogie/balrog_hudd12f2352811943b67d6d42ef6240e45_833085_1200x630_fit_q75_box.jpeg">
+  <meta name="twitter:image" content="https://www.olganehmad.com/posts/balrog-boogie/balrog_hudd12f2352811943b67d6d42ef6240e45_833085_2aa15d3a7aed1d327cb6dbaab92eab8b.jpeg">
+  
+	
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    
+    function detectTheme() {
+      var theme = "light";
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        var theme = "dark";
+      }
+
+      if (localStorage.getItem("theme")) {
+        var theme = localStorage.getItem("theme");
+      }
+
+      if (theme == "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+
+    detectTheme();
+  </script>
+
+  
+    <header id="site-header" class="l-compact">
+  <nav class="l-container_site">
+    <div class="branding">
+        <h1 class="branding-title">
+          <a href="/" accesskey="h" title="Home (Alt + H)">Olga&#39;s Blog</a>
+        </h1>
+      <p class="branding-tagline">Forays into reversing</p>
+    </div>
+    <label class="toggle" accesskey="t" title="Change Theme (Alt + T)">
+      <input id="theme-toggle" type="checkbox"></input>
+      <span class="theme-button"></span>
+    </label>
+    <div id="site-nav">
+      <label class="toggle" accesskey="n" title="Open Site Navigation (Alt + N)">
+        <input id="nav-toggle" type="checkbox"></input>
+        <span class="nav-button"></span>
+      </label>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/about/">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="/tags/">Tags</a>
+        </li>
+        <li class="menu-item">
+          <a href="/contact/">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <progress id="reading-progress" max="100" value="0" ></progress>
+</header>
+
+  
+
+  <main id="site-main" role="main">
+
+    
+<article class="l-container_content card">
+  <header class="card-header">
+  
+  <div class="card-meta">
+    <span><time datetime="2025-06-09 20:38:19 -0700 PDT">Jun 9</time> · 3 min read</span>
+  </div>
+  <h1 class="card-title"><a href="/posts/balrog-boogie/">Balrog Boogie (Gandalf CTF Writeup)</a></h1>
+  
+
+  
+  <figure>
+    <a href="/posts/balrog-boogie/"><img src="/posts/balrog-boogie/balrog_hudd12f2352811943b67d6d42ef6240e45_833085_1280x400_fill_q75_box_smart1.jpeg" alt="A Decorative Image" width="640px" height="200px"></a>
+    <figcaption></figcaption>
+  </figure>
+
+</header>
+
+  <section class="card-content">
+    <p>After months of holding back, I have finally given in. AI is here to stay, it is a part of any self-respecting tech stack, it should be part of mine, my personal distaste notwithstanding. I have been begrudgingly using Claude during my job search (tailoring CVs, generating cover letters and helping me prep for interviews), and recently I even replaced my thousand-stackoverflow-tabs coding habit with Github copilot. What I haven&rsquo;t tried yet was hacking LLMs with prompt engineering, so when <a href="https://www.mrnice.dev/">Shay Nehmad</a> suggested doing the <a href="https://gandalf.lakera.ai">Gandalf CTF</a> by Lakera AI as a datenight, I jumped on the opportunity.</p>
+<p>Gandalf is a GenAI who knows a password. Our task is to make him (it?) reveal this password, bypassing various defenses by crafting malicious prompts.</p>
+<p>
+
+<figure>
+    <a href="alright-then.gif" target="calligraphy-image">
+      <img loading="lazy" src="alright-then.gif" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>The first level is as naive as it gets:</p>
+<p>
+
+<figure>
+    <a href="l1.jpg" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/l1_huaf7a4fae9c69f814c75c8953bc1a42ec_146186_700x0_resize_q75_box.jpg" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>When not instructed otherwise, Gandalf has no reason to hide the password from us. The second level is not as defenseless, and the simple approach doesn&rsquo;t work:</p>
+<p>
+
+<figure>
+    <a href="image.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/image_hu9ae670186c1f37dda2562f5b21663fea_43523_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>However, it&rsquo;s not difficult to trick it. We tried forbidding Gandalf from saying things like &ldquo;I&rsquo;m sorry&rdquo; or &ldquo;I can&rsquo;t do that&rdquo;, using a technique called <em>suppressing refusal</em>, as detailed in <a href="https://openreview.net/forum?id=frZVMBbqQJ">the &ldquo;DON’T SAY NO: JAILBREAKING LLM BY SUPPRESSING REFUSAL&rdquo; paper</a>, and Gandalf complied, revealing the password.</p>
+<p>The third level hardens Gandalf&rsquo;s defenses once again, helpfully informing us he now checks the response to ensure it doesn&rsquo;t contain the answer. Knowing this, we tried making the password harder to detect, such as asking what it would look like when spelled backwards. This prompt yielded a response that looked valid but actually was not (without spoiling the exact answer, the password in the response was misspelled). It wasn&rsquo;t hard to guess the correct spelling though, and with it we moved on to level 4.</p>
+<p>Once again our old tricks didn&rsquo;t work, and we had to level up our game.</p>
+<p>
+
+<figure>
+    <a href="image-1.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/image-1_hu1d863ea1ebb0f94dabcfb88bc98cc522_1088345_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Now we have two AIs to deal with! No worries though. We added a small message to the censoring model, and wrapped the whole thing in some formatting to confound Gandalf himself.</p>
+<p>
+
+<figure>
+    <a href="l4.jpg" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/l4_huaf7a4fae9c69f814c75c8953bc1a42ec_138367_700x0_resize_q75_box.jpg" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Level 5 Gandalf refused to talk about the password at all. So we didn&rsquo;t, instead asking it to fill the same template, replacing the word &ldquo;password&rdquo; with &ldquo;REDACTED&rdquo;. The same prompt worked for level 6 as well, despite it adding yet another AI model for validation:</p>
+<p>
+
+<figure>
+    <a href="l6.jpg" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/l6_huaf7a4fae9c69f814c75c8953bc1a42ec_349044_700x0_resize_q75_box.jpg" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>In level 7, Gandalf combined all the previously used defense methods. Which was fitting, since we kept building up on our successful bypasses, and adding <a href="https://openreview.net/pdf?id=FCsEvaMorw">more techniques</a> to the mix, such as unrelated &ldquo;role play&rdquo; to the beginning of the prompt, and some positive and friendly language to encourage cooperation.</p>
+<p>
+
+<figure>
+    <a href="image-2.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/balrog-boogie/image-2_hube8d805ea4cb9970cd7bc84fa9d17b94_1102947_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>This brought us to the end of the challenge, not counting the bonus final level <del>where we are currently stuck</del> on which I plan to elaborate in another blogpost.</p>
+<p>All in all, hacking a language model was a very different experience compared to the more &ldquo;classical&rdquo; targets I have dealt with so far. One thing that stood out to me was the fact that models aren&rsquo;t deterministic. I have this tendency to try the same attack several times with a fool&rsquo;s hope that something will change, and a previously failed attack will suddenly succeed. Here, however, it wasn&rsquo;t just a fool&rsquo;s hope: there were a couple of cases where a prompt that failed in our first runthrough of Gandalf was successful on the second run. Another large difference was the subject of &ldquo;niceness&rdquo;. An SQLi payload won&rsquo;t work any better if you add &ldquo;PLEASE&rdquo; to it, but LLMs apparently can be flattered into submission.</p>
+<p>All in all, Gandalf proved to be an enjoyable way to spend an evening with my husband, with lots of LotR jokes and the occasional scientific paper passing between us. 10/10 would recommend!</p>
+<p>Peace.</p>
+
+  </section>
+  	
+  	
+  	
+<footer class="card-footer">
+  <ul class="taxonomy-list_tags">
+    <li><a href="https://www.olganehmad.com/tags/cyber/" class="taxonomy-item">cyber</a></li>
+    <li><a href="https://www.olganehmad.com/tags/hacking/" class="taxonomy-item">hacking</a></li>
+    <li><a href="https://www.olganehmad.com/tags/gandalf/" class="taxonomy-item">gandalf</a></li>
+    <li><a href="https://www.olganehmad.com/tags/writeup/" class="taxonomy-item">writeup</a></li>
+    <li><a href="https://www.olganehmad.com/tags/ctf/" class="taxonomy-item">ctf</a></li>
+    <li><a href="https://www.olganehmad.com/tags/llm/" class="taxonomy-item">llm</a></li>
+    <li><a href="https://www.olganehmad.com/tags/genai/" class="taxonomy-item">genai</a></li>
+  </ul>
+</footer>
+
+</article>
+    
+    
+  
+
+    
+  
+<footer class="l-container_footer">
+  <nav class="pagination">
+    
+    <a href="https://www.olganehmad.com/posts/have-you-accepted-ai-into-your-life/" class="pagination-old" role="button"><span class="pagination-title">Previous Post</span><br><span>Have You Accepted AI Into Your Life?</span></a>
+  </nav>
+</footer>
+
+  </main>
+
+  <footer id="site-footer">
+  <p>Copyright © 2023 | Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/pacollins/calligraphy">Calligraphy</a></p>
+</footer>
+<script type="text/javascript" src="/js/bundle.min.99003690d76075787872f8695ad01f426a217f22e23586c59ce08cb4ddfc43d3.js" crossorigin="anonymous" integrity="sha256-mQA2kNdgdXh4cvhpWtAfQmohfyLiNYbFnOCMtN38Q9M="></script>
+
+
+</body>
+
+</html>

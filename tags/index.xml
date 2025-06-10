@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023</copyright>
-    <lastBuildDate>Thu, 05 Jun 2025 09:21:50 -0700</lastBuildDate><atom:link href="https://www.olganehmad.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jun 2025 20:38:19 -0700</lastBuildDate><atom:link href="https://www.olganehmad.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ctf</title>
       <link>https://www.olganehmad.com/tags/ctf/</link>
-      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/ctf/</guid>
       <description></description>
@@ -20,18 +20,54 @@
     <item>
       <title>cyber</title>
       <link>https://www.olganehmad.com/tags/cyber/</link>
-      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/cyber/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>gandalf</title>
+      <link>https://www.olganehmad.com/tags/gandalf/</link>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/gandalf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>genai</title>
+      <link>https://www.olganehmad.com/tags/genai/</link>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hacking</title>
       <link>https://www.olganehmad.com/tags/hacking/</link>
-      <pubDate>Thu, 05 Jun 2025 09:21:50 -0700</pubDate>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>llm</title>
+      <link>https://www.olganehmad.com/tags/llm/</link>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>writeup</title>
+      <link>https://www.olganehmad.com/tags/writeup/</link>
+      <pubDate>Mon, 09 Jun 2025 20:38:19 -0700</pubDate>
+      
+      <guid>https://www.olganehmad.com/tags/writeup/</guid>
       <description></description>
     </item>
     
@@ -50,15 +86,6 @@
       <pubDate>Wed, 09 Apr 2025 14:00:04 -0700</pubDate>
       
       <guid>https://www.olganehmad.com/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>writeup</title>
-      <link>https://www.olganehmad.com/tags/writeup/</link>
-      <pubDate>Wed, 09 Apr 2025 14:00:04 -0700</pubDate>
-      
-      <guid>https://www.olganehmad.com/tags/writeup/</guid>
       <description></description>
     </item>
     
