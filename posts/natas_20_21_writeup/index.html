@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>(Yep, another) Natas writeup - level 20-&gt;21 | Olga&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="Static analysis 101, or: on the importance of not leaving snarky comments">
+  <meta name="generator" content="Hugo 0.118.2">
+  <meta name="robots" content="index, follow">
+
+  
+<link rel="stylesheet" href="/css/libraries.min.71ed9843bd9de5b970d18e88108ced41f778369861ec5e39a971f94435ada25f.css" crossorigin="anonymous" integrity="sha256-ce2YQ72d5blw0Y6IEIztQfd4Nphh7F45qXH5RDWtol8=">
+
+  
+<link rel="stylesheet" href="/scss/main.min.7a5a6c86dd8afb68da23b8bcf40e860d8479bf9f96c1d615ae97542d256049ba.css" crossorigin="anonymous" integrity="sha256-elpsht2K&#43;2jaI7i89A6GDYR5v5&#43;WwdYVrpdULSVgSbo=">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.olganehmad.com/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.olganehmad.com/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.olganehmad.com/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://www.olganehmad.com/favicon/site.webmanifest">
+  <link rel="mask-icon" href="https://www.olganehmad.com/favicon/safari-pinned-tab.svg" color="#00aba9">
+  <link rel="shortcut icon" href="https://www.olganehmad.com/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="https://www.olganehmad.com/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#00aba9"><meta name="keywords" content="cyber, hacking, writeup, ctf, analysis">
+  <meta name="og:title" content="(Yep, another) Natas writeup - level 20-&gt;21">
+  <meta name="og:description" content="Static analysis 101, or: on the importance of not leaving snarky comments">
+  <meta name="og:type" content="article">
+  <meta name="og:site_name" content="Olga&#39;s Blog">
+  <meta name="og:url" content="https://www.olganehmad.com/posts/natas_20_21_writeup/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="og:image" content="https://www.olganehmad.com/posts/natas_20_21_writeup/static_hu55f7546c33bcc646614d21591d4c488b_542149_1200x630_fit_q75_box.jpg">
+  <meta name="twitter:image" content="https://www.olganehmad.com/posts/natas_20_21_writeup/static_hu55f7546c33bcc646614d21591d4c488b_542149_5d5d7e00a4a9f72fdc54779961cd7ebe.jpg">
+  
+	
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    
+    function detectTheme() {
+      var theme = "light";
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        var theme = "dark";
+      }
+
+      if (localStorage.getItem("theme")) {
+        var theme = localStorage.getItem("theme");
+      }
+
+      if (theme == "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+
+    detectTheme();
+  </script>
+
+  
+    <header id="site-header" class="l-compact">
+  <nav class="l-container_site">
+    <div class="branding">
+        <h1 class="branding-title">
+          <a href="/" accesskey="h" title="Home (Alt + H)">Olga&#39;s Blog</a>
+        </h1>
+      <p class="branding-tagline">Forays into reversing</p>
+    </div>
+    <label class="toggle" accesskey="t" title="Change Theme (Alt + T)">
+      <input id="theme-toggle" type="checkbox"></input>
+      <span class="theme-button"></span>
+    </label>
+    <div id="site-nav">
+      <label class="toggle" accesskey="n" title="Open Site Navigation (Alt + N)">
+        <input id="nav-toggle" type="checkbox"></input>
+        <span class="nav-button"></span>
+      </label>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/about/">About</a>
+        </li>
+        <li class="menu-item">
+          <a href="/tags/">Tags</a>
+        </li>
+        <li class="menu-item">
+          <a href="/contact/">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <progress id="reading-progress" max="100" value="0" ></progress>
+</header>
+
+  
+
+  <main id="site-main" role="main">
+
+    
+<article class="l-container_content card">
+  <header class="card-header">
+  
+  <div class="card-meta">
+    <span><time datetime="2025-06-26 09:55:21 -0700 PDT">Jun 26</time> · 5 min read</span>
+  </div>
+  <h1 class="card-title"><a href="/posts/natas_20_21_writeup/">(Yep, another) Natas writeup - level 20-&gt;21</a></h1>
+  
+
+  
+  <figure>
+    <a href="/posts/natas_20_21_writeup/"><img src="/posts/natas_20_21_writeup/static_hu55f7546c33bcc646614d21591d4c488b_542149_1280x400_fill_q75_box_smart1.jpg" alt="A Decorative Image" width="640px" height="200px"></a>
+    <figcaption></figcaption>
+  </figure>
+
+</header>
+
+  <section class="card-content">
+    <p>In case you missed it, <a href="https://overthewire.org/wargames/natas/">NATAS</a> is a wargame/CTF that teaches various web hacking techniques through 34 levels of pure fun. Of those levels, several stood out to me as worthy of a writeup of my own (as I mentioned <a href="../not-another-natas-writeup-part-1/">previously</a>, NATAS writeups are all over the web, so I only write when I have something interesting to contribute). This time, I want to talk about level 20-&gt;21, which required static analysis of PHP code.</p>
+<p>
+
+<figure>
+    <a href="image.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image_hu04ca06cde5f43b93794a5307c3f47b6a_65962_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>We access the page as an already logged-in user who is not the admin. Logging in as admin would let us see the credentials we seek for level 21. Based on this info, we can assume this level will involve some sort of session-based shenanigans, similarly to levels 18 and 19, where we exploited easily guessable session IDs. Here, however, the session ID cookie has enough entropy to block that path (26 alphanumeric chars give us 2.91 × 10⁴⁰ possibilities), and so we need to look elsewhere. Luckily, we have the sourcecode:</p>
+<p>
+
+<figure>
+    <a href="image-1.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-1_hu0cb3392dea2f83ec3d783d618e5d4f90_289259_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>First of all, we see that <code>print_credentials()</code> checks the <code>$_SESSION</code> variable for a key-value pair, where the key is <code>admin</code> and its value is set to <code>1</code>. We can also see how the backend processes and stores the session info:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">mywrite</span>($sid, $data) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// $data contains the serialized version of $_SESSION
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// but our encoding is better
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;MYWRITE </span><span style="color:#e6db74">$sid</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$data</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// make sure the sid is alnum only!!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">strspn</span>($sid, <span style="color:#e6db74">&#34;1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-&#34;</span>) <span style="color:#f92672">!=</span> <span style="color:#a6e22e">strlen</span>($sid)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Invalid SID&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    $filename <span style="color:#f92672">=</span> <span style="color:#a6e22e">session_save_path</span>() <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;mysess_&#34;</span> <span style="color:#f92672">.</span> $sid;
+</span></span><span style="display:flex;"><span>    $data <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Saving in &#34;</span><span style="color:#f92672">.</span> $filename);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ksort</span>($_SESSION);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span>($_SESSION <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$key</span><span style="color:#e6db74"> =&gt; </span><span style="color:#e6db74">$value</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        $data <span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$key</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$value\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">file_put_contents</span>($filename, $data);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">chmod</span>($filename, <span style="color:#ae81ff">0600</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Given <code>$data</code>, which we are told contains the serialized version of <code>$_SESSION</code>, the existing serialization is promptly ignored, and the <code>$data</code> variable contents thrown out, replaced with an empty string. The session variable undergoes <code>ksort()</code>, which tells us two things: it is an array (since that&rsquo;s what PHP&rsquo;s <code>ksort()</code> takes), and it might contain more than one key-value pair. This will come useful later. Next, each key-value pair is added back to <code>$data</code> as a string of the format <code>key value\n</code>. Note that newline character, it will be useful as well. Finally, <code>$data</code> is written to a file named <code>mysess_SID</code> to be accessed later.</p>
+<p>
+
+<figure>
+    <a href="image-2.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-2_hu486dbcf8586c5834585621c145b5fe84_45555_700x0_resize_box_3.png" alt="Using imaginary keys and values">
+    </a>
+  <figcaption class="text-small">Using imaginary keys and values</figcaption>
+</figure>
+</p>
+<p>Next, let&rsquo;s see how the file is read back:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">myread</span>($sid) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;MYREAD </span><span style="color:#e6db74">$sid</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">strspn</span>($sid, <span style="color:#e6db74">&#34;1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-&#34;</span>) <span style="color:#f92672">!=</span> <span style="color:#a6e22e">strlen</span>($sid)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Invalid SID&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    $filename <span style="color:#f92672">=</span> <span style="color:#a6e22e">session_save_path</span>() <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;mysess_&#34;</span> <span style="color:#f92672">.</span> $sid;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">file_exists</span>($filename)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Session file doesn&#39;t exist&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Reading from &#34;</span><span style="color:#f92672">.</span> $filename);
+</span></span><span style="display:flex;"><span>    $data <span style="color:#f92672">=</span> <span style="color:#a6e22e">file_get_contents</span>($filename);
+</span></span><span style="display:flex;"><span>    $_SESSION <span style="color:#f92672">=</span> <span style="color:#66d9ef">array</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span>(<span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, $data) <span style="color:#66d9ef">as</span> $line) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">debug</span>(<span style="color:#e6db74">&#34;Read [</span><span style="color:#e6db74">$line</span><span style="color:#e6db74">]&#34;</span>);
+</span></span><span style="display:flex;"><span>    $parts <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#34; &#34;</span>, $line, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>($parts[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>) $_SESSION[$parts[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> $parts[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">session_encode</span>() <span style="color:#f92672">?:</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The contents of the file are split (via php&rsquo;s <code>explode()</code> function) to lines using the newline character, then each line is split to its key and value parts using the space character, and each key-value pair is added to the <code>$_SESSION</code> array.</p>
+<p>
+
+<figure>
+    <a href="image-3.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-3_hub49a073465c38222558a1eed302e471b_88937_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>The clincher here, the main thing to notice, is the fact that the contents of <code>$_SESSION</code> aren&rsquo;t actually validated or sanitized anywhere prior to undergoing the self-proclaimed better encoding in <code>mywrite()</code>. Suppose we could provide a value for a key that would contain a newline character: <code>Alice/nHackedU</code>. When saving, this key would go as-is into the session file. When read, however, the <code>/n</code> we hid in the name will be treated like any other newline, and <code>HackedU</code> will become a new key in the array.</p>
+<p>Now that we know we can exploit the backend with a crafted parameter, let&rsquo;s see bow which means this parameter will get there. As it happens, there is some user input involved, namely in changing our name. In the sourcecode we can see the <code>&quot;name&quot;</code> param of the request is stored in the <code>$_SESSION</code> variable under the same key. And, of course, to figure out what to inject in the name we pass, we just need to look at the first function in the code: <code>print_credentials()</code>, which looks for <code>admin -&gt; 1</code>.</p>
+<p>
+
+<figure>
+    <a href="image-7.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-7_huaff759b27583558fed0084694adb8edb_169541_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Upon our first request, our malicious name has been written to the session file, but not much else has happened:</p>
+<p>
+
+<figure>
+    <a href="image-5.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-5_hu440a6a9c221ef9b7b52865e317397e33_129047_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>We can see the URL-encoded newline and space characters have been decoded before being written into the session file. Next, we will send another request. It doesn&rsquo;t have to have any data attached to it, it&rsquo;s only important for it to have the same session ID. As the session data is loaded from the session file, our payload is parsed as an actual key-value pair in the <code>$_SESSION</code> variable, fooling the credentials function into disclosing the password to us. Success!</p>
+<p>
+
+<figure>
+    <a href="image-6.png" target="calligraphy-image">
+      <img loading="lazy" src="/posts/natas_20_21_writeup/image-6_hu07e7c115be89647ad90756e1526abc38_480991_700x0_resize_box_3.png" alt="A Decorative Image">
+    </a>
+  
+</figure>
+</p>
+<p>Some notes I found useful following this level:</p>
+<ul>
+<li>It&rsquo;s bad enough to have vulnerable code, but the real problem is leaving comments that point out the vulnerabilities.</li>
+<li>URL-encoding &ldquo;/n&rdquo; is not the same as URL-encoding the <code>/n</code> newline character. Which in hindsight might be obvious, but at the time got me stuck for a while. I highly recommend having a post-it with special character encodings in a visible place (or, like, memorize them, I heard some people can do that).</li>
+</ul>
+<p>Hope this walkthrough has been helpful, and I strongly recommend the NATAS wargame in case you came here just looking for memes. Also, sorry about the lack of memes.</p>
+<p>Peace!</p>
+
+  </section>
+  	
+  	
+  	
+<footer class="card-footer">
+  <ul class="taxonomy-list_tags">
+    <li><a href="https://www.olganehmad.com/tags/cyber/" class="taxonomy-item">cyber</a></li>
+    <li><a href="https://www.olganehmad.com/tags/hacking/" class="taxonomy-item">hacking</a></li>
+    <li><a href="https://www.olganehmad.com/tags/writeup/" class="taxonomy-item">writeup</a></li>
+    <li><a href="https://www.olganehmad.com/tags/ctf/" class="taxonomy-item">ctf</a></li>
+    <li><a href="https://www.olganehmad.com/tags/analysis/" class="taxonomy-item">analysis</a></li>
+  </ul>
+</footer>
+
+</article>
+    
+    
+  
+
+    
+  
+<footer class="l-container_footer">
+  <nav class="pagination">
+    
+    <a href="https://www.olganehmad.com/posts/balrog-boogie/" class="pagination-old" role="button"><span class="pagination-title">Previous Post</span><br><span>Balrog Boogie (Gandalf CTF Writeup)</span></a>
+  </nav>
+</footer>
+
+  </main>
+
+  <footer id="site-footer">
+  <p>Copyright © 2023 | Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/pacollins/calligraphy">Calligraphy</a></p>
+</footer>
+<script type="text/javascript" src="/js/bundle.min.99003690d76075787872f8695ad01f426a217f22e23586c59ce08cb4ddfc43d3.js" crossorigin="anonymous" integrity="sha256-mQA2kNdgdXh4cvhpWtAfQmohfyLiNYbFnOCMtN38Q9M="></script>
+
+
+</body>
+
+</html>

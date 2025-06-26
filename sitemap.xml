@@ -2,13 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.olganehmad.com/posts/balrog-boogie/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
+    <loc>https://www.olganehmad.com/posts/natas_20_21_writeup/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/analysis/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/tags/ctf/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/tags/cyber/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/hacking/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/posts/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/tags/writeup/</loc>
+    <lastmod>2025-06-26T09:55:21-07:00</lastmod>
+  </url><url>
+    <loc>https://www.olganehmad.com/posts/balrog-boogie/</loc>
     <lastmod>2025-06-09T20:38:19-07:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/tags/gandalf/</loc>
@@ -17,22 +38,7 @@
     <loc>https://www.olganehmad.com/tags/genai/</loc>
     <lastmod>2025-06-09T20:38:19-07:00</lastmod>
   </url><url>
-    <loc>https://www.olganehmad.com/tags/hacking/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
-  </url><url>
     <loc>https://www.olganehmad.com/tags/llm/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/posts/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/tags/</loc>
-    <lastmod>2025-06-09T20:38:19-07:00</lastmod>
-  </url><url>
-    <loc>https://www.olganehmad.com/tags/writeup/</loc>
     <lastmod>2025-06-09T20:38:19-07:00</lastmod>
   </url><url>
     <loc>https://www.olganehmad.com/posts/have-you-accepted-ai-into-your-life/</loc>
